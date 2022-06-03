@@ -58,6 +58,16 @@ abstract class StyleDeBTN{
       }
     }),
   );
+  static ButtonStyle getHomeFloatingChildBTNStyle() => ButtonStyle(
+    backgroundColor: MaterialStateColor.resolveWith((states){
+      if(states.contains(MaterialState.pressed)){
+        return Palette.getBleu(1);
+      }
+      else{
+        return Palette.getBleu(0.7);
+      }
+    }),
+  );
 }
 
 class CustomTheme{

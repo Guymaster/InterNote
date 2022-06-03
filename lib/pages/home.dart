@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../composants/notesListView.dart';
 import '../outils/constantes.dart';
 import '../outils/styles.dart';
+import 'package:animated_floating_buttons/animated_floating_buttons.dart';
 
 class Home extends StatefulWidget{
   const Home({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class Home extends StatefulWidget{
 
 class _Home extends State<Home> with SingleTickerProviderStateMixin{
   late TabController _tabController;
+  final GlobalKey<AnimatedFloatingActionButtonState> floatingBTNKey =GlobalKey<AnimatedFloatingActionButtonState>();
   @override
   void initState(){
     super.initState();
@@ -39,11 +41,17 @@ class _Home extends State<Home> with SingleTickerProviderStateMixin{
           });
           return Scaffold(
             backgroundColor: Palette.getNoir(1),
-            floatingActionButton: FloatingActionButton(
-              onPressed: (){},
-              backgroundColor: Palette.getBleu(1),
-              hoverColor: Palette.getBleu(0.8),
-              child: const Icon(Icons.add),
+            floatingActionButton: AnimatedFloatingActionButton(
+              spaceBetween: -10,
+              tooltip: "Ajouter une Note",
+              animatedIconData: AnimatedIcons.menu_close,
+              colorStartAnimation: Palette.getBleu(1),
+              colorEndAnimation: Palette.getBlanc(.7),
+              key: floatingBTNKey,
+              fabButtons: <Widget>[
+                buildFloatChild(Icons.pending_actions),
+                buildFloatChild(Icons.pending_actions)
+              ],
             ),
             appBar: AppBar(
               elevation: 0,
@@ -153,4 +161,8 @@ class HomeNavigationStatus extends ChangeNotifier{
   int _tabSelected = 0;
   int get tabSelected => _tabSelected;
   set tabSelected(int i){_tabSelected = i; notifyListeners();}
+}
+
+FloatingActionButton buildFloatChild(IconData iconData){
+  return FloatingActionButton(onPressed: (){}, child: Icon(iconData), backgroundColor: Palette.getBleu(1),);
 }

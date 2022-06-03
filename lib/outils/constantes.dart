@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../main.dart';
 import '../pages/home.dart';
+import '../pages/splashPage.dart';
 
 abstract class Palette{
   static Color getBlanc(double o) => Color.fromRGBO(219, 218, 228, o);
@@ -19,8 +20,8 @@ abstract class MQ{
 class CustomRouter{
   late GoRouter router = GoRouter(
     routes: routes,
-    errorPageBuilder: (context, state) => const MaterialPage<void>(
-        child: MyHomePage(title: 'Erreur',)
+    errorPageBuilder: (context, state) => MaterialPage<void>(
+        child: SplashPage(title: 'Erreur',)
     ),
     urlPathStrategy: UrlPathStrategy.hash
   );
@@ -28,8 +29,8 @@ class CustomRouter{
     GoRoute(
       path: '/',
       name: RouteName.root,
-      pageBuilder: (context, state) => const MaterialPage<void>(
-        child: MyHomePage(title: 'Root',)
+      pageBuilder: (context, state) => MaterialPage<void>(
+        child: SplashPage(title: 'Root',)
       )
     ),
     GoRoute(
@@ -42,15 +43,15 @@ class CustomRouter{
     GoRoute(
         path: '/params',
         name: RouteName.params,
-        pageBuilder: (context, state) => const MaterialPage<void>(
-            child: MyHomePage(title: 'Params',)
+        pageBuilder: (context, state) => MaterialPage<void>(
+            child: SplashPage(title: 'Params',)
         )
     ),
     GoRoute(
         path: '/add',
         name: RouteName.add,
-        pageBuilder: (context, state) => const MaterialPage<void>(
-            child: MyHomePage(title: 'Add',)
+        pageBuilder: (context, state) => MaterialPage<void>(
+            child: SplashPage(title: 'Add',)
         )
     ),
   ];
