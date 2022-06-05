@@ -1,12 +1,14 @@
+import 'dart:isolate';
 import './outils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'outils/constantes.dart';
+import 'package:async/async.dart';
 
-void main() {
-  //ToDo: Mettre en place un système multithread (Ui et traitement)
+void main() async {
+  //ToDo: Terminer la mise en place du système multithread (Ui et traitement)
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Palette.getNoir(1),
     systemNavigationBarIconBrightness: Brightness.dark,

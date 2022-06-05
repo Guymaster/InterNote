@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../outils/constantes.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rive/rive.dart';
+import 'package:flutter/scheduler.dart';
+import '../treatment/initFiles.dart';
 
 class SplashPage extends StatefulWidget {
   SplashPage({Key? key, required this.title}) : super(key: key);
@@ -21,7 +23,12 @@ class _SplashPage extends State<SplashPage> {
   @override
   void initState(){
     super.initState();
+    //ToDo: Améliorer SplashScreen
     _loadingController = SimpleAnimation("Animation 1");
+    WidgetsBinding.instance.addPostFrameCallback((_){ //On commence à verifier les fichiers après le build de la page
+        initApp(context).then((value) => print(value));
+      }
+    );
   }
 
   @override
@@ -33,7 +40,7 @@ class _SplashPage extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: const Center(
         child: RiveAnimation.asset('assets/rive/loading.riv'),
       ),
       floatingActionButton: FloatingActionButton(
