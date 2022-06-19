@@ -1,6 +1,6 @@
 # docsforall
 
-A small app for taking and sharing notes.
+A small app for editing and sharing decentralized notes.
 
 ## Getting Started
 
