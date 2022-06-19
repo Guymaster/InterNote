@@ -64,20 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  device_info:
-    dependency: transitive
-    description:
-      name: device_info
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
-  device_info_platform_interface:
-    dependency: transitive
-    description:
-      name: device_info_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.1"
   fake_async:
     dependency: transitive
     description:
@@ -121,13 +107,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  get_mac:
-    dependency: "direct main"
-    description:
-      name: get_mac
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
   go_router:
     dependency: "direct main"
     description:
@@ -191,13 +170,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
-  mac_address:
-    dependency: "direct main"
-    description:
-      name: mac_address
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   matcher:
     dependency: transitive
     description:
@@ -234,12 +206,12 @@ packages:
     source: hosted
     version: "1.8.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.10"
+    version: "2.0.11"
   path_provider_android:
     dependency: transitive
     description:
@@ -289,48 +261,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
-  platform_device_id:
-    dependency: "direct main"
-    description:
-      name: platform_device_id
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
-  platform_device_id_linux:
-    dependency: transitive
-    description:
-      name: platform_device_id_linux
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  platform_device_id_macos:
-    dependency: transitive
-    description:
-      name: platform_device_id_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  platform_device_id_platform_interface:
-    dependency: transitive
-    description:
-      name: platform_device_id_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  platform_device_id_web:
-    dependency: transitive
-    description:
-      name: platform_device_id_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
-  platform_device_id_windows:
-    dependency: transitive
-    description:
-      name: platform_device_id_windows
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   plugin_platform_interface:
     dependency: transitive
     description:

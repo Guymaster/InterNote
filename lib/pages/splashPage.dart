@@ -26,7 +26,10 @@ class _SplashPage extends State<SplashPage> {
     //ToDo: Améliorer SplashScreen
     _loadingController = SimpleAnimation("Animation 1");
     WidgetsBinding.instance.addPostFrameCallback((_){ //On commence à verifier les fichiers après le build de la page
-        initApp(context).then((value) => print(value));
+        initApp(context).then((value){
+          print(value);
+          context.goNamed(RouteName.home);
+        });
       }
     );
   }

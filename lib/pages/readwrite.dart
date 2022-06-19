@@ -8,14 +8,14 @@ import '../outils/constantes.dart';
 import '../outils/styles.dart';
 import 'package:animated_floating_buttons/animated_floating_buttons.dart';
 
-class Home extends StatefulWidget{
-  const Home({Key? key}) : super(key: key);
+class ReadWritePage extends StatefulWidget{
+  const ReadWritePage({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _Home();
+  State<ReadWritePage> createState() => _Home();
 }
 
-class _Home extends State<Home> with SingleTickerProviderStateMixin{
+class _Home extends State<ReadWritePage> with SingleTickerProviderStateMixin{
   late TabController _tabController;
   final GlobalKey<AnimatedFloatingActionButtonState> floatingBTNKey =GlobalKey<AnimatedFloatingActionButtonState>();
   @override
@@ -54,8 +54,9 @@ class _Home extends State<Home> with SingleTickerProviderStateMixin{
               ],
             ),
             appBar: AppBar(
+              leading: const Icon(Icons.close),
               elevation: 0,
-              title: Text('Notes', style: StyleDeTexte.getLeadingTextStyle(),),
+              title: Text('Titre de la note', style: StyleDeTexte.getLeadingTextStyle(),),
               actions: [
                 HomeActionBTN(label: 'Recherche', icon: Icon(Icons.search_rounded, color: Palette.getBlanc(.7),), destination: RouteName.params,),
                 HomeActionBTN(label: 'Paramètres', icon: Icon(Icons.settings, color: Palette.getBlanc(.7 )), destination: RouteName.params,)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:internote/pages/readwrite.dart';
 import '../main.dart';
 import '../pages/home.dart';
 import '../pages/splashPage.dart';
@@ -54,6 +55,13 @@ class CustomRouter{
             child: SplashPage(title: 'Add',)
         )
     ),
+    GoRoute(
+        path: '/readwrite',
+        name: RouteName.readwrite,
+        pageBuilder: (context, state) => MaterialPage<void>(
+            child: ReadWritePage()
+        )
+    ),
   ];
 }
 
@@ -62,4 +70,5 @@ abstract class RouteName{
   static const String home = 'home';
   static const String params = 'params';
   static const String add = 'add';
+  static const String readwrite = 'readwrite';
 }

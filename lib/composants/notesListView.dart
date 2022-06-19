@@ -1,13 +1,52 @@
+import 'dart:io';
+
+import 'package:localstorage/localstorage.dart';
+import 'package:path_provider/path_provider.dart';
 import '../composants/noteTyle.dart';
 import '../outils/constantes.dart';
 import 'package:flutter/material.dart';
 
 class NotesListView extends StatelessWidget{
   late List<Widget> liste;
+  static Future<NotesListView> getRecentsView() async{
+    final Directory directory = await getApplicationDocumentsDirectory();
+    final String directoryPath = directory.path;
+    File noteTreeRef = File('$directoryPath/note_tree.json');
+    String ntrContent = await noteTreeRef.readAsString();
+    List<Widget> noteList = [];
+    List<Map> tempList = [];
+    List<String> refList = [];
+    //Let's search all note refs
+    print('Lets search all note refs');
+    LocalStorage storage = LocalStorage("note_tree.json");
+    List hierarchy = storage.getItem("hierarchy");
+    print('longueur de hierachy: ${hierarchy.length}');
+    for (Map folder in hierarchy) {
+      folder["content"].forEach((noteRef){
+        refList.add(noteRef);
+      });
+    }
+    //Let's get all notes by refs
+    print('get all notes by refs');
+    for (String ref in refList) {
+      LocalStorage note = LocalStorage("$ref.json");
+      tempList.add({
+        "id": note.getItem("id"),
+        "titre": note.getItem("titre")
+      });
+    }
+    //ToDo: Limiter (par date) la recherche des notes récentes
+    for (Map noteTyleMap in tempList){
+      noteList.add(NoteTyle(noteTyleMap["id"], noteTyleMap["titre"]));
+    }
+    print('Pas Dev mais OK');
+    return  NotesListView(noteList);
+  }
   static NotesListView getDevView(int nbre){
+    print('Si Dev');
     List<NoteTyle> liste = [];
     for(int i=1; i<=nbre; i++){
-      liste.add(NoteTyle());
+      liste.add(NoteTyle("NOTETEST $i", "Titre Test $i"));
     }
     return NotesListView(liste);
   }
